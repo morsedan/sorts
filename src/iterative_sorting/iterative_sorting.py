@@ -5,6 +5,30 @@ def linear_search(arr, target):
             return True
         return False
 
+# O(log(n)) logarithmic
+def binary_search(arr, target):
+    start = 0
+    end = (len(arr) - 1)
+    found = False
+
+    while end >= start and not found:
+        # find middle point
+        middle_index = (start + end) // 2
+
+        # compare mid-value with target
+        # if the middle value is the same as target then we found it
+        if arr[middle_index] == target:
+            found = True
+
+        # move start or end index closer to one another (narrow down the possible range)
+        else:
+            if arr[middle_index] > target:
+                # target is smaller so search the left hand side
+                end = middle_index - 1
+            else:
+                # target is larger so search the right hand side
+                start = middle_index + 1
+    return found
 
 
 # TO-DO: Complete the selection_sort() function below
