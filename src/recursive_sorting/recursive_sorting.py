@@ -61,6 +61,13 @@ def merge(arrA, arrB):
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
+    if len(arr) > 1:
+        # split array in half
+        halfway_point = len(arr)//2
+        arrA = merge_sort(arr[:halfway_point])
+        arrB = merge_sort(arr[halfway_point:])
+        # combine the sorted half-arrays
+        arr = merge(arrA, arrB)
 
     return arr
 
