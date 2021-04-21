@@ -30,6 +30,27 @@ def binary_search(arr, target):
                 start = middle_index + 1
     return found
 
+# O(n^2)
+def insertion_sort(list_to_sort):
+    # first element is already on the "sorted side"
+    # all other elements need to be examined
+
+    # iterate through the array starting at index 1 and going to end
+    for i in range(1, len(list_to_sort) - 1):
+        # number at the current index is being sorted
+        current_num = list_to_sort[i]
+        # keep track of where the current number is while we move it
+        j = i
+        # while it is bigger than the one on the left OR is at the beginning of the array
+        while j > 0 and current_num < list_to_sort[j - 1]:
+            # move the bigger number to the right
+            list_to_sort[j] = list_to_sort[j - 1]
+            # update the index of where the current number is
+            j -= 1
+        # put the current number at the index we found that it should be in
+        list_to_sort[j] = current_num
+
+
 
 # TO-DO: Complete the selection_sort() function below
 def selection_sort( arr ):
